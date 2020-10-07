@@ -8,7 +8,11 @@ kind: ServiceAccount
 metadata:
   name: percona-xtradb-cluster-operator-workload
 ---
+{{- if .Values.watchAllNamespaces }}
+kind: ClusterRoleBinding
+{{- else }}
 kind: RoleBinding
+{{- end }}
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: {{ include "pxc-operator.fullname" . }}
@@ -24,7 +28,7 @@ subjects:
   namespace: {{ .Release.Namespace }}
   {{- end }}
 roleRef:
-  {{- if .Values.watchNamespace }}
+  {{- if (or .Values.watchAllNamespaces .Values.watchNamespace) }}
   kind: ClusterRole
   {{- else }}
   kind: Role
