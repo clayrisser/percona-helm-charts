@@ -12,6 +12,7 @@ image:
 # set if you want to specify a namespace to watch
 # defaults to `.Release.namespace` if left blank
 # watchNamespace:
+watchAllNamespaces: true
 
 # set if you want to use a different operator name
 # defaults to `percona-server-mongodb-operator`

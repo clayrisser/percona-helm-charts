@@ -3,7 +3,11 @@ kind: ServiceAccount
 metadata:
   name: {{ include "psmdb-operator.fullname" . }}
 ---
-kind: RoleBinding
+{{- if .Values.watchAllNamespaces }}
+kind: ClusterRoleBinding
+{{- else }}
+kind: RoleBinding	kind: RoleBinding
+{{- end }}
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: {{ include "psmdb-operator.fullname" . }}
@@ -19,7 +23,7 @@ subjects:
   namespace: {{ .Release.Namespace }}
   {{- end }}
 roleRef:
-  {{- if .Values.watchNamespace }}
+  {{- if (or .Values.watchAllNamespaces .Values.watchNamespace) }}
   kind: ClusterRole
   {{- else }}
   kind: Role
