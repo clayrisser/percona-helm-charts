@@ -41,9 +41,9 @@ pxc:
   #   wsrep_debug=ON
   #   wsrep_provider_options="gcache.size=1G; gcache.recover=yes"
   resources:
-    requests:
-      memory: 1G
-      cpu: 600m
+    requests: {}
+      # memory: 1G
+      # cpu: 600m
     limits: {}
       # memory: 1G
       # cpu: 600m
@@ -114,9 +114,9 @@ haproxy:
   readinessDelaySec: 15
   livenessDelaySec: 300
   resources:
-    requests:
-      memory: 1G
-      cpu: 600m
+    requests: {}
+      # memory: 1G
+      # cpu: 600m
     limits: {}
       # memory: 1G
       # cpu: 600m
@@ -161,9 +161,9 @@ proxysql:
   readinessDelaySec: 15
   livenessDelaySec: 300
   resources:
-    requests:
-      memory: 1G
-      cpu: 600m
+    requests: {}
+      # memory: 1G
+      # cpu: 600m
     limits: {}
       # memory: 1G
       # cpu: 600m
@@ -222,16 +222,16 @@ backup:
     tag: 1.6.0-pxc8.0-backup
   imagePullSecrets: []
   # - name: private-registry-credentials
-  storages:
-    fs-pvc:
-      type: filesystem
-      volume:
-        persistentVolumeClaim:
-        #  storageClassName: standard
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 6Gi
+  storages: {}
+    # fs-pvc:
+    #   type: filesystem
+    #   volume:
+    #     persistentVolumeClaim:
+    #     #  storageClassName: standard
+    #       accessModes: ["ReadWriteOnce"]
+    #       resources:
+    #         requests:
+    #           storage: 6Gi
     # s3-us-west:
     #   type: s3
     #   s3:
