@@ -38,7 +38,7 @@ Common labels
 app.kubernetes.io/name: {{ include "pxc-operator.name" . }}
 helm.sh/chart: {{ include "pxc-operator.chart" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-io.cattle.field/appId: {{ .Release.Name }}
+io.cattle.field/appId: {{ include "pxc-operator.name" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
