@@ -38,7 +38,6 @@ Common labels
 app.kubernetes.io/name: {{ include "psmdb-operator.name" . }}
 helm.sh/chart: {{ include "psmdb-operator.chart" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-io.cattle.field/appId: {{ .Release.Name }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
