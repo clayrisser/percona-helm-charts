@@ -19,7 +19,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: {{ include "psmdb-operator.fullname" . }}
-  {{- if .Values.watchNamespace }}
+  {{- if (or .Values.watchNamespace .Values.watchAllNamespaces) }}
   namespace: {{ .Release.Namespace }}
   {{- end }}
 roleRef:
