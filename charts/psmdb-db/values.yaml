@@ -62,12 +62,14 @@ replset:
     # livenessProbe: {}
   # schedulerName: ""
   resources:
-    limits:
-      cpu: "300m"
-      memory: "0.5G"
-    requests:
-      cpu: "300m"
-      memory: "0.5G"
+    # limits:
+    #   cpu: "300m"
+    #   memory: "0.5G"
+    # requests:
+    #   cpu: "300m"
+    #   memory: "0.5G"
+    limits: {}
+    requests: {}
   volumeSpec:
     #      emptyDir: {}
     #      hostPath:
